@@ -1,0 +1,66 @@
+
+(1)
+
+/* Query 1- query used for first insight */
+
+SELECT a.name ,count(b.title)
+from Artist as a
+join Album as b
+on a.ArtistId = b.ArtistId
+GROUP by 1
+ORDER by 2 desc 
+limit 10;
+
+
+
+(2)
+
+/* Query 2- query used for second insight */
+
+select m.name,count(t.MediaTypeId) as total  
+from Track as t
+JOIN MediaType as m
+on t.MediaTypeId = m.MediaTypeId
+group by 1
+order by 2 desc
+
+
+(3)
+
+/* Query 3- query used for third insight */
+select g.name,count(t.GenreId) as total  
+from Track as t
+JOIN Genre as g
+on t.GenreId = g.GenreId
+group by 1
+order by 2 desc
+limit 7 ;
+
+
+(4)
+
+/* Query 4- query used for fourth insight */
+
+select e.FirstName ,e.LastName ,count(c.SupportRepId)as total
+from Employee  as e
+join Customer as c
+on c.SupportRepId = e.EmployeeId
+GROUP by 1 ,2
+order by 3 DESC;
+
+
+
+(5)
+
+/* Query 5- query used for fifth insight */
+
+select (c.FirstName || " "||c.LastName )as cutomer_name,sum(i.total)as total
+from customer  as c
+join Invoice as i
+on c.CustomerId = i.CustomerId
+GROUP by 1 
+order by 2 DESC
+limit 5;
+
+
+
